@@ -1,0 +1,134 @@
+.telaInicial{
+    width:200px;
+    height:200px;
+    background-color: #000;
+    position: absolute;
+    top: 10%;
+    left: 10;
+    box-shadow: 5px 5px 1px #000;
+}
+
+.login{
+    width:200px;
+    height:100px;
+    background-color: #ffd688;
+    position: relative;
+    box-shadow: 5px 5px 1px #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.mensagem{
+    width:200;
+    height:100;
+    background-image: url("../imagens/l.png");
+    background-color: #ffd688;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.telaCadastro{
+    width:200px;
+    height:400px;
+    background-color: #000;
+    position: absolute;
+    top: 40;
+    left: 10;
+    box-shadow: 5px 5px 1px #000;
+}
+
+.mensagemCadastro{
+    width:200;
+    height:100;
+    background-image: url("../imagens/l.png");
+    background-color: #ffd688;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    position: relative;
+}
+
+.formCadastro{
+    width:200px;
+    height:300px;
+    background-color: #ffd688;
+    position: relative;
+    box-shadow: 5px 5px 1px #000;
+}
+
+.telaEscolhaProva{
+    width:500px;
+    background-color: #ffd688;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 5px 1px #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.acertos{
+    width:300px;
+    font-size: 12px;
+    background-color: #ffd688;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 5px 1px #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.ranking{
+    width:300px;
+    font-size: 12px;
+    background-color: #ffd688;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 5px 1px #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.atualizar{
+    width:300px;
+    font-size: 12px;
+    background-color: #ffd688;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 5px 1px #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.criapergunta{
+    width:500px;
+    font-size: 17px;
+    background-color: #ffd688;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 5px 5px 1px #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+}
