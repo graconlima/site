@@ -49,7 +49,7 @@ public class Prova extends HttpServlet {
             
             if(sessao.isNew() || requisicao.getParameter("idProva") == null || !sessao.getAttribute("matricula").equals(matricula)){
                 escritor.println("Fazer Login...");
-                resposta.sendRedirect("/site/AreaAluno?matricula="+matricula);
+                resposta.sendRedirect("/AreaAluno?matricula="+matricula);
             }else{
 
                 sessao.setMaxInactiveInterval(14400);
@@ -88,7 +88,7 @@ public class Prova extends HttpServlet {
                             "            <div class=\"dnota\">NOTA: </div>\n" +
                             "            <div class=\"nota\">0,0</div>\n" +
                             "            </div>");
-                escritor.println("<form action=\"/site/Prova\" method=\"post\">");
+                escritor.println("<form action=\"/Prova\" method=\"post\">");
                 int i = 0;
                 while(rs.next()){
 
@@ -148,7 +148,7 @@ public class Prova extends HttpServlet {
             matricula = requisicao.getParameter("matricula");
 //          if(!sessao.getAttribute("matricula").equals(matricula)){
 //                escritor.println("Fazer Login...");
-                //resposta.sendRedirect("/site/Login");
+                //resposta.sendRedirect("/Login");
 //          }else{
                 int qtdPerguntas = Integer.parseInt(requisicao.getParameter("qtdQuestoes"));
                 String dadosEmail = "&dadosemail=matricula"+requisicao.getParameter("matricula")+", prova='"+requisicao.getParameter("idProva")+",'<br/><br/>";//concatena todos os campos em um parametro get
@@ -163,8 +163,8 @@ public class Prova extends HttpServlet {
 
                     if(respostaAlternativa == null || respostaAlternativa[0] == null || respostaAlternativa[0].equals("")){
                         //escritor.println("Responda todas as alternativas");
-                        //resposta.sendRedirect("/site/Prova?idProva="+idProva+"matricula="+matricula);
-                        //resposta.sendRedirect("/site/AreaAluno?matricula"+matricula);
+                        //resposta.sendRedirect("/Prova?idProva="+idProva+"matricula="+matricula);
+                        //resposta.sendRedirect("/AreaAluno?matricula"+matricula);
                         //break;
                         respostaAlternativa = new String[1];
                         respostaAlternativa[0] = "-";
@@ -184,9 +184,9 @@ public class Prova extends HttpServlet {
                 //sessao.invalidate();//por enquanto nao encerrar
 
                 //enviar email com a correcao da parte objetiva
-                //resposta.sendRedirect("/site/EmailProvaAluno?idProva="+requisicao.getParameter("idProva")+"&matricula="+matricula+dadosEmail);
-                //resposta.sendRedirect("/site/AreaAluno?matricula"+matricula);
-                resposta.sendRedirect("/site/Login");
+                //resposta.sendRedirect("/EmailProvaAluno?idProva="+requisicao.getParameter("idProva")+"&matricula="+matricula+dadosEmail);
+                //resposta.sendRedirect("/AreaAluno?matricula"+matricula);
+                resposta.sendRedirect("/Login");
             }
         } catch (IOException ex) {
             //encerrando a sessao

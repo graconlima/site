@@ -65,7 +65,7 @@ public class CadastroAluno extends HttpServlet {
                         "    <body>\n" +
                         "        <div class=\"telaCadastro\">\n" +
                         "            <div class=\"formCadastro\">\n" +
-                        "               <form action=\"/site/CadastroAluno\" method=\"post\"/>"+
+                        "               <form action=\"/CadastroAluno\" method=\"post\"/>"+
                         "                MATRICULA: <input type=\"text\" name=\"matricula\" value="+matricula+" ><br />\n" +
                         "                NOME: <input type=\"text\" name=\"nome\" value="+nome+" ><br />\n" +
                         "                EMAIL: <input type=\"text\" name=\"email\" value="+email+" ><br />\n" +
@@ -85,7 +85,7 @@ public class CadastroAluno extends HttpServlet {
                         "        </form>\n" +
                         "        </div>\n" +
                         "        <div>\n" +
-                        "           <form action=/site/CadastroAluno method=get>\n" +
+                        "           <form action=/CadastroAluno method=get>\n" +
                         "               Buscar Cadastro: <input type=\"text\" name=\"matricula\" value=\"Matricula\">\n" +
                         "               <input type=\"submit\">\n" +
                         "           </form>\n" +
@@ -120,18 +120,18 @@ public class CadastroAluno extends HttpServlet {
 
                 if(cbd.atualizarAluno(matricula, nome, email, senha, idDisciplina) == 2){
                     escritor.println("ALGO DEU ERRADO...");
-                    resposta.sendRedirect("/site/CadastroAluno?m=loginIncorretoLogin");
+                    resposta.sendRedirect("/CadastroAluno?m=loginIncorretoLogin");
                 }else{
-                    //resposta.sendRedirect("/site/Login");
+                    //resposta.sendRedirect("/Login");
                     escritor.println("TDU CERTO atualizando aluno...");
                 }
             }else{
                 escritor.println("NAO Existe Matricula!");
                 if(cbd.inserirAluno(matricula, nome, email, senha, idDisciplina) == 2){
                     escritor.println("ALGO DEU ERRADO...");
-                    resposta.sendRedirect("/site/CadastroAluno?m=loginIncorretoLogin");
+                    resposta.sendRedirect("/CadastroAluno?m=loginIncorretoLogin");
                 }else{
-                    //resposta.sendRedirect("/site/Login");
+                    //resposta.sendRedirect("/Login");
                     escritor.println("TDU CERTO cadastrando aluno...");
                 }
             }
@@ -142,17 +142,17 @@ public class CadastroAluno extends HttpServlet {
             int c2 = rs2.getRow();
             rs.beforeFirst();
             if(c2 > 0){//ja existe
-                resposta.sendRedirect("/site/Login");
+                resposta.sendRedirect("/Login");
 
             }else{
                 System.out.println("m: "+matricula+" dis: "+ idDisciplina);
                 if(cbd.inserirDisciplinaAluno(matricula, idDisciplina) == 2){
                     escritor.println("ALGO DEU ERRADO...");
-                    resposta.sendRedirect("/site/CadastroAluno?m=loginIncorretoLogin");
+                    resposta.sendRedirect("/CadastroAluno?m=loginIncorretoLogin");
 
                 }else{
                     escritor.println("TDU CERTO cadastrando disciplina...");
-                    resposta.sendRedirect("/site/Login");
+                    resposta.sendRedirect("/Login");
                 }
             }
             

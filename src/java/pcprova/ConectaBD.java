@@ -20,7 +20,7 @@ public class ConectaBD {
         try{
             Class.forName("com.mysql.jdbc.Driver");//precisa disso sim
             //conexao = DriverManager.getConnection("jdbc:mysql://localhost/basedeprovas","root","");
-            conexao = DriverManager.getConnection("jdbc:mysql://bdtreino.mysql.database.azure.com","gracon","Mysql123");
+            conexao = DriverManager.getConnection("jdbc:mysql://bdtreino.mysql.database.azure.com/basedeprovas","gracon","Mysql123");
         }catch(Exception e){
             e.printStackTrace();
         }

@@ -35,7 +35,7 @@ public class CorrigirProva extends HttpServlet {
                     }
                 escritor.println("</textarea>");
 
-                escritor.println("<form action=\"/site/CorrigirProva\" method=\"get\">");
+                escritor.println("<form action=\"/CorrigirProva\" method=\"get\">");
                 escritor.println("<input type=\"text\" name=\"idProva\" value=\"idProva\">");
                 escritor.println("<input type=\"text\" name=\"matricula\" value=\"matricula\">");
 
@@ -55,7 +55,7 @@ public class CorrigirProva extends HttpServlet {
         try{        
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
-            escritor.println("<form action=\"/site/CorrigirProva\" method=\"post\">");
+            escritor.println("<form action=\"/CorrigirProva\" method=\"post\">");
             escritor.println("<div>Nota da prova objetiva: "+nota+"</div>");
             int cQuestoes = 0;
             while(rs.next()){

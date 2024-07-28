@@ -44,7 +44,7 @@ public class AdicionaPerguntaProva extends HttpServlet {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
             escritor.println("Hora de entrada; "+sessao.getAttribute("HoraEntrada"));
-            escritor.println("<form action=\"/site/AdicionaPerguntaProva\" method=\"post\">");
+            escritor.println("<form action=\"/AdicionaPerguntaProva\" method=\"post\">");
 
             escritor.println("INDIQUE A PROVA:<br /> <select name=\"idProva\" size=\"3\"/><br />");
             while(rsP.next()){

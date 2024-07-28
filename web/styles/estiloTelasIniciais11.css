@@ -2,15 +2,15 @@
     width:200px;
     height:200px;
     background-color: #000;
-    position: absolute;
+    position: relative;
     top: 10%;
     left: 10;
     box-shadow: 5px 5px 1px #000;
 }
 
 .login{
-    width:200px;
-    height:100px;
+    width:200;
+    height:200;
     background-color: #ffd688;
     position: relative;
     box-shadow: 5px 5px 1px #000;
@@ -65,7 +65,7 @@
 }
 
 .telaEscolhaProva{
-    width:500px;
+    width:700;
     background-color: #ffd688;
     position: relative;
     top: 0;

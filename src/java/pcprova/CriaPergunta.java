@@ -36,7 +36,7 @@ public class CriaPergunta extends HttpServlet {
             escritor.println("<html><head><link rel=\"stylesheet\" href=\""+requisicao.getContextPath()+"/styles/estiloTelasIniciais11.css \" /></head><body>");
             escritor.println("Hora de entrada; "+sessao.getAttribute("HoraEntrada"));
             escritor.println("<div class=\"criapergunta\">");
-            escritor.println("<form action=\"/site/CriaPergunta\" method=\"post\">");
+            escritor.println("<form action=\"/CriaPergunta\" method=\"post\">");
 
             escritor.println("(QUESTAO)<br> <textarea name=\"campoPergunta\" cols=\"65\" rows=\"5\"/></textarea> <br />");
             escritor.println("a) <input type=\"text\" name=\"campoAlternativa1\" size=\"60\"/> <br />");

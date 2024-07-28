@@ -31,7 +31,7 @@ public class VerTodosAlunos extends HttpServlet {
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
-            escritor.println("<form action=\"/site/VerTodosAlunos\" method=\"post\">");
+            escritor.println("<form action=\"/VerTodosAlunos\" method=\"post\">");
 
             escritor.println("<select name=\"disciplina\">");
             escritor.println("<option value=\"0\">Todos</option>");
@@ -61,7 +61,7 @@ public class VerTodosAlunos extends HttpServlet {
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
-            escritor.println("<form action=\"/site/VerTodosAlunos\" method=\"post\">");
+            escritor.println("<form action=\"/VerTodosAlunos\" method=\"post\">");
 
             escritor.println("<table border=\"1\">");
             while(rsA.next()){

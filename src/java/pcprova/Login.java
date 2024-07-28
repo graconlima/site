@@ -40,18 +40,16 @@ public class Login extends HttpServlet {
                             "        <link rel=\"stylesheet\" href=\""+requisicao.getContextPath()+"/styles/estiloTelasIniciais11.css\" />"+
                             "    </head>\n" +
                             "    <body>\n" +
-                            "        <div class=\"telaInicial\">\n" +
                             "            <div class=\"login\">\n" +
-                            "               <form action=\"/site/Login\" method=\"post\"/>"+
+                            "               <form action=\"/Login\" method=\"post\"/>"+
                             "                   LOGIN: <input type=\"text\" name=\"login\"/><br />\n" +
                             "                   SENHA: <input type=\"password\" name=\"senha\"/><br />\n" +
                             "                   <input type=\"submit\" />\n" +
+                            "                   <a href=\"/CadastroAluno\">Cadastro Aluno</a>"+ 
+                            "               <div class=\"mensagem\" />Forne&ccedil;a as informa&ccedil;&otilde;es acima"+
+                            "               </div>\n" + 
                             "               </form>\n" +
-                            "            </div>\n" +
-                            "            <div class=\"mensagem\" />Forne&ccedil;a as informa&ccedil;&otilde;es acima"+ 
                             "           </div>"+
-                            "        </div>\n" +
-                            "            <a href=\"/site/CadastroAluno\">Cadastro Aluno</a>"+ 
                             "    </body>\n" +
                             "</html>");
         } catch (Exception ex) {
@@ -73,17 +71,17 @@ public class Login extends HttpServlet {
                 sessao.setAttribute("matricula", login);
                 //sessao.setMaxInactiveInterval(14400);
                 escritor.println("Redirecionando...");
-                resposta.sendRedirect("/site/AreaProfessor");
+                resposta.sendRedirect("/AreaProfessor");
             }else if(cbd.loginAluno(login, senha)){
 
                 sessao = requisicao.getSession(true);//pode usar para gravar atributos de sessao
                 sessao.setAttribute("matricula", login);
                 sessao.setMaxInactiveInterval(14400);
                 escritor.println("Redirecionando...");
-                resposta.sendRedirect("/site/AreaAluno?matricula="+login);
+                resposta.sendRedirect("/AreaAluno?matricula="+login);
             }else{
                 escritor.println("Login incorreto...");
-                resposta.sendRedirect("/site/Login");
+                resposta.sendRedirect("/Login");
             }
         } catch (Exception ex) {
 
