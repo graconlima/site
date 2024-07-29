@@ -1,4 +1,4 @@
-package pcprova;
+package prova;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,7 +28,6 @@ public class Login extends HttpServlet {
     //bd
     ConectaBD cbd = new ConectaBD();
     public void doGet(HttpServletRequest requisicao, HttpServletResponse resposta){
-    
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor = resposta.getWriter();
@@ -41,11 +40,11 @@ public class Login extends HttpServlet {
                             "    </head>\n" +
                             "    <body>\n" +
                             "            <div class=\"login\">\n" +
-                            "               <form action=\"/Login\" method=\"post\"/>"+
+                            "               <form action=\""+requisicao.getContextPath()+"/Login\" method=\"post\"/>"+
                             "                   LOGIN: <input type=\"text\" name=\"login\"/><br />\n" +
                             "                   SENHA: <input type=\"password\" name=\"senha\"/><br />\n" +
                             "                   <input type=\"submit\" />\n" +
-                            "                   <a href=\"/CadastroAluno\">Cadastro Aluno</a>"+ 
+                            "                   <a href=\""+requisicao.getContextPath()+"/CadastroAluno\">Cadastro Aluno</a>"+ 
                             "               <div class=\"mensagem\" />Forne&ccedil;a as informa&ccedil;&otilde;es acima"+
                             "               </div>\n" + 
                             "               </form>\n" +
@@ -71,17 +70,17 @@ public class Login extends HttpServlet {
                 sessao.setAttribute("matricula", login);
                 //sessao.setMaxInactiveInterval(14400);
                 escritor.println("Redirecionando...");
-                resposta.sendRedirect("/AreaProfessor");
+                resposta.sendRedirect(requisicao.getContextPath()+"/AreaProfessor");
             }else if(cbd.loginAluno(login, senha)){
 
                 sessao = requisicao.getSession(true);//pode usar para gravar atributos de sessao
                 sessao.setAttribute("matricula", login);
                 sessao.setMaxInactiveInterval(14400);
                 escritor.println("Redirecionando...");
-                resposta.sendRedirect("/AreaAluno?matricula="+login);
+                resposta.sendRedirect(requisicao.getContextPath()+"/AreaAluno?matricula="+login);
             }else{
                 escritor.println("Login incorreto...");
-                resposta.sendRedirect("/Login");
+                resposta.sendRedirect(requisicao.getContextPath()+"/Login");
             }
         } catch (Exception ex) {
 

@@ -1,4 +1,4 @@
-package pcprova;
+package prova;
 
 
 public class Avaliacao {

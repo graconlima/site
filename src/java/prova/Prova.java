@@ -1,4 +1,4 @@
-package pcprova;
+package prova;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -49,7 +49,7 @@ public class Prova extends HttpServlet {
             
             if(sessao.isNew() || requisicao.getParameter("idProva") == null || !sessao.getAttribute("matricula").equals(matricula)){
                 escritor.println("Fazer Login...");
-                resposta.sendRedirect("/AreaAluno?matricula="+matricula);
+                resposta.sendRedirect(requisicao.getContextPath()+"/AreaAluno?matricula="+matricula);
             }else{
 
                 sessao.setMaxInactiveInterval(14400);
@@ -88,7 +88,7 @@ public class Prova extends HttpServlet {
                             "            <div class=\"dnota\">NOTA: </div>\n" +
                             "            <div class=\"nota\">0,0</div>\n" +
                             "            </div>");
-                escritor.println("<form action=\"/Prova\" method=\"post\">");
+                escritor.println("<form action=\""+requisicao.getContextPath()+"/Prova\" method=\"post\">");
                 int i = 0;
                 while(rs.next()){
 
@@ -186,7 +186,7 @@ public class Prova extends HttpServlet {
                 //enviar email com a correcao da parte objetiva
                 //resposta.sendRedirect("/EmailProvaAluno?idProva="+requisicao.getParameter("idProva")+"&matricula="+matricula+dadosEmail);
                 //resposta.sendRedirect("/AreaAluno?matricula"+matricula);
-                resposta.sendRedirect("/Login");
+                resposta.sendRedirect(requisicao.getContextPath()+"/Login");
             }
         } catch (IOException ex) {
             //encerrando a sessao

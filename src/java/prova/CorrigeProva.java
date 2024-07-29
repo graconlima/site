@@ -1,5 +1,5 @@
 
-package pcprova;
+package prova;
 
 import java.io.IOException;
 import java.io.PrintWriter;

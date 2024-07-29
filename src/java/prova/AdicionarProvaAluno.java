@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pcprova;
+package prova;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,9 +18,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author GD
+ */
+@WebServlet(name = "AdicionarProvaAluno", urlPatterns = {"/AdicionarProvaAluno"})
+public class AdicionarProvaAluno extends HttpServlet {
 
-@WebServlet(name = "VerTodosAlunos", urlPatterns = {"/VerTodosAlunos"})
-public class VerTodosAlunos extends HttpServlet {
     private HttpSession sessao;
     private ConectaBD cbd = new ConectaBD();
     
@@ -31,15 +36,10 @@ public class VerTodosAlunos extends HttpServlet {
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
-            escritor.println("<form action=\"/VerTodosAlunos\" method=\"post\">");
-
-            escritor.println("<select name=\"disciplina\">");
-            escritor.println("<option value=\"0\">Todos</option>");
-            escritor.println("<option value=\"1\">Sistemas Distribuidos</option>");
-            escritor.println("<option value=\"2\">Dispositivos Moveis</option>");
-            escritor.println("</select>");
-            escritor.println("<input type=\"submit\">");
-            
+            escritor.println("<form action=\"/AdicionarProvaAluno\" method=\"post\">"
+                    + "Informe o cod. da disciplina: <input type=\"text\" name=\"disciplina\">"
+                    + "Informe o cod. da prova: <input type=\"text\" name=\"prova\">"
+                    + "<input type=\"submit\" value=\"Cadastrar provas para alunos\">");            
             escritor.println("</form></body></html>");
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -48,30 +48,32 @@ public class VerTodosAlunos extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest requisicao, HttpServletResponse resposta){
-        
-        //String[] v = requisicao.getParameterValues("disciplina");
-        String v = requisicao.getParameter("disciplina");
-        ResultSet rsA;
-
-        if(v.equals("0"))
-            rsA = cbd.recuperarTodosAlunos();
-        else
-            rsA = cbd.recuperarAlunosPorDisciplina(v);
-        
+                
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
             escritor.println("<form action=\"/VerTodosAlunos\" method=\"post\">");
+        //String[] v = requisicao.getParameterValues("disciplina");
+        String v = requisicao.getParameter("disciplina");
+        String p = requisicao.getParameter("prova");
+        ResultSet rsA = null;
+
+        if(v.equals("0") || v.equals("") || p.equals("") || p.equals("0"))
+            escritor.println("Sem disciplina ou Prova");
+        else
+            rsA = cbd.recuperarAlunosPorDisciplina(v);
 
             escritor.println("<table border=\"1\">");
+            int c = 0;
             while(rsA.next()){
-                escritor.println("<tr>");
-                //escritor.println("<td> Mat.: "+rsA.getString("matricula")+" Nome: "+rsA.getString("nome")+" Email: "+rsA.getString("email")+" disciplina "+rsA.getString("iddisciplina")+"</td>");
-                escritor.println("<td> Mat.: "+rsA.getString("matricula")+" Nome: "+rsA.getString("nome")+" Email: "+rsA.getString("email")+"</td>");
-                escritor.println("</tr>");
-            }
+                
+                    escritor.println("<tr><td>Aluno "+c+" - "+rsA.getString("matricula")+ " - prova: "+p+"</td></tr>");                
+                    cbd.inserirProvaAluno(rsA.getString("matricula"), p);
+                    escritor.println("<tr><td>------------</td></tr>");
+                    
+                    c++;
+            }                
             escritor.println("</table>");
-
             escritor.println("</form></body></html>");
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -80,10 +82,4 @@ public class VerTodosAlunos extends HttpServlet {
             se.printStackTrace();
         }
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

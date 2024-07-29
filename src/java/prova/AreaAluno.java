@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pcprova;
+package prova;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,7 +43,7 @@ public class AreaAluno extends HttpServlet {
             sessao = requisicao.getSession();
             if(!sessao.getAttribute("matricula").equals(matricula)){
                 escritor.println("Fazer Login...");
-                resposta.sendRedirect("/Login");
+                resposta.sendRedirect(requisicao.getContextPath()+"/Login");
             }else{
                 sessao = requisicao.getSession(true);//pode usar para gravar atributos de sessao
                 escritor = resposta.getWriter();
@@ -54,7 +54,7 @@ public class AreaAluno extends HttpServlet {
 
                 sessao.setAttribute("HoraEntrada", new Date());
                 escritor.println("<div class=\"telaEscolhaProva\" >");
-                escritor.println("<form action=\"/Prova\" method=\"get\">");
+                escritor.println("<form action=\""+requisicao.getContextPath()+"/Prova\" method=\"get\">");
 
                 escritor.println("INDIQUE A PROVA:<br /> <select name=\"idProva\" size=\"3\"/><br />");
                 while(rsPA.next()){
@@ -71,7 +71,7 @@ public class AreaAluno extends HttpServlet {
                 //escritor.println("<form action=\"/AreaAluno?matricula="+matricula+"&gravar=false \" method=\"post\"><input type=\"submit\" value=\"ATUALIZAR MEU CADASTRO...\"></form>");
                 
                 escritor.println("<div class=\"atualizar\">Hora de entrada; "+sessao.getAttribute("HoraEntrada"));
-                escritor.println("<form action=/CadastroAluno method=\"get\">"
+                escritor.println("<form action="+requisicao.getContextPath()+"/CadastroAluno method=\"get\">"
                         
                         + "<input type=\"hidden\" name=matricula value="+matricula+">"
                         + "<input type=\"submit\" value=\"ATUALIZAR MEU CADASTRO...\"></form></div>");
