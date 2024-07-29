@@ -1,0 +1,30 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
+<display-name>Base de Provas</display-name>
+<description> Projeto Base de Provas </description>
+<servlet>
+<servlet-name>Login</servlet-name>
+<servlet-class>prova.Login</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Login</servlet-name>
+<url-pattern>/Login</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>AreaAluno</servlet-name>
+<servlet-class>prova.AreaAluno</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>AreaAluno</servlet-name>
+<url-pattern>/AreaAluno</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<servlet-name>Prova</servlet-name>
+<servlet-class>prova.Prova</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Prova</servlet-name>
+<url-pattern>/Prova</url-pattern>
+</servlet-mapping>
+</web-app>
