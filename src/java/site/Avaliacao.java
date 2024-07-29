@@ -1,4 +1,4 @@
-package prova;
+package site;
 
 
 public class Avaliacao {
