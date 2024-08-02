@@ -36,7 +36,7 @@ public class AdicionarProvaAluno extends HttpServlet {
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
-            escritor.println("<form action=\"/AdicionarProvaAluno\" method=\"post\">"
+            escritor.println("<form action=\""+requisicao.getContextPath()+"/AdicionarProvaAluno\" method=\"post\">"
                     + "Informe o cod. da disciplina: <input type=\"text\" name=\"disciplina\">"
                     + "Informe o cod. da prova: <input type=\"text\" name=\"prova\">"
                     + "<input type=\"submit\" value=\"Cadastrar provas para alunos\">");            
@@ -52,7 +52,7 @@ public class AdicionarProvaAluno extends HttpServlet {
         try {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
-            escritor.println("<form action=\"/VerTodosAlunos\" method=\"post\">");
+            escritor.println("<form action=\""+requisicao.getContextPath()+"/VerTodosAlunos\" method=\"post\">");
         //String[] v = requisicao.getParameterValues("disciplina");
         String v = requisicao.getParameter("disciplina");
         String p = requisicao.getParameter("prova");
