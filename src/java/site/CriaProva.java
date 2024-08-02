@@ -35,7 +35,7 @@ public class CriaProva extends HttpServlet {
             PrintWriter escritor = resposta.getWriter();
             escritor.println("<html><head></head><body>");
             escritor.println("Hora de entrada; "+sessao.getAttribute("HoraEntrada"));
-            escritor.println("<form action=\"/CriaProva\" method=\"post\">");
+            escritor.println("<form action=\""+requisicao.getContextPath()+"/CriaProva\" method=\"post\">");
 
             escritor.println("NUMERO DA AVALIACAO: <input type=\"text\" name=\"campoNumAvaliacao\" /><br />");
             escritor.println("ETAPA: <input type=\"text\" name=\"campoEtapa\" /><br />");

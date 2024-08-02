@@ -2,14 +2,25 @@
 <web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Base de Provas</display-name>
     <description> Projeto Base de Provas </description>
+    
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>site.Login</servlet-class>
+        <servlet-name>AdicionaPerguntaProva</servlet-name>
+        <servlet-class>site.AdicionaPerguntaProva</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>AdicionaPerguntaProva</servlet-name>
+        <url-pattern>/AdicionaPerguntaProva</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AdicionarProvaAluno</servlet-name>
+        <servlet-class>site.AdicionarProvaAluno</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdicionarProvaAluno</servlet-name>
+        <url-pattern>/AdicionarProvaAluno</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
         <servlet-name>AreaAluno</servlet-name>
         <servlet-class>site.AreaAluno</servlet-class>
@@ -18,6 +29,79 @@
         <servlet-name>AreaAluno</servlet-name>
         <url-pattern>/AreaAluno</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>AreaProfessor</servlet-name>
+        <servlet-class>site.AreaProfessor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AreaProfessor</servlet-name>
+        <url-pattern>/AreaProfessor</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CadastroAluno</servlet-name>
+        <servlet-class>site.CadastroAluno</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CadastroAluno</servlet-name>
+        <url-pattern>/CadastroAluno</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CorrigeProva</servlet-name>
+        <servlet-class>site.CorrigeProva</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CorrigeProva</servlet-name>
+        <url-pattern>/CorrigeProva</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CorrigirProva</servlet-name>
+        <servlet-class>site.CorrigirProva</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CorrigirProva</servlet-name>
+        <url-pattern>/CorrigirProva</url-pattern>
+    </servlet-mapping>    
+    
+    <servlet>
+        <servlet-name>CriaPergunta</servlet-name>
+        <servlet-class>site.CriaPergunta</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CriaPergunta</servlet-name>
+        <url-pattern>/CriaPergunta</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>CriaProva</servlet-name>
+        <servlet-class>site.CriaProva</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CriaProva</servlet-name>
+        <url-pattern>/CriaProva</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>EmailProvaAluno</servlet-name>
+        <servlet-class>site.EmailProvaAluno</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmailProvaAluno</servlet-name>
+        <url-pattern>/EmailProvaAluno</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>site.Login</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>Prova</servlet-name>
         <servlet-class>site.Prova</servlet-class>
@@ -26,4 +110,24 @@
         <servlet-name>Prova</servlet-name>
         <url-pattern>/Prova</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>VerTodosAlunos</servlet-name>
+        <servlet-class>site.VerTodosAlunos</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerTodosAlunos</servlet-name>
+        <url-pattern>/VerTodosAlunos</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!--servlet>
+        <servlet-name></servlet-name>
+        <servlet-class>site.</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name></servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping-->
+    
 </web-app>
